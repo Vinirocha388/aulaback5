@@ -65,6 +65,17 @@ app.get("/personagens", (req, res) => {
     return res.status(200).send( personagens )
 })
 
+app.post("/emocoes", (req, res) => {
+    const {nome,cor} = req.body
+    const newEmotion = {
+        id: emocoes.length + 1,
+        nome: nome,
+        cor: cor
+    }
+    emocoes.push(newEmotion)
+    return res.status(200).send( emocoes )
+})
+
 
 app.get("/2tds2", (req, res) => {
     return res.status(200).send({ message:"Hello World!"})
